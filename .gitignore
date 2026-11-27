@@ -1,0 +1,21 @@
+# local / generated
+broken.md
+body.md
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+# never: translation files, game files, saves
+*.zip
+*.rar
+*.7z
+*.pak
+*.ucas
+*.utoc
+*.exe
+*.dll
+*.sl2

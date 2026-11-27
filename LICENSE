@@ -1,0 +1,20 @@
+XP IBRA — Arabic game translations catalog (قائمة تعريبات الألعاب)
+
+The catalog DATA in this repository (catalog/arabic.json, catalog/arabic.schema.json and the
+documentation) is licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:           https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt the catalog data for any purpose, as long as you give appropriate
+credit (link to https://github.com/ibrahim828282/XP-IBRA-Arabic) and indicate if changes were made.
+
+IMPORTANT — the translations themselves are NOT covered by this license.
+This repository contains only links and information. Every translation listed here belongs to its
+team or translator, is downloaded from their own site, and is under their own license and terms.
+
+---
+
+بيانات القائمة في هذا المستودع تحت رخصة المشاع الإبداعي «نَسب المُصنَّف 4.0 دولي» (CC BY 4.0).
+التعريبات نفسها **مو** مشمولة بهذي الرخصة: كل تعريب حقوقه لفريقه، والتحميل من موقعهم، وله رخصته وشروطه.

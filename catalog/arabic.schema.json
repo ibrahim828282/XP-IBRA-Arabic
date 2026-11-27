@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "XP IBRA — قائمة التعريبات العربية (arabic.json)",
+  "type": "object",
+  "required": ["schema", "games"],
+  "properties": {
+    "schema": { "type": "integer", "description": "رقم نسخة صيغة الملف. الحالي = 1." },
+    "updated": { "type": "string", "description": "تاريخ آخر تحديث للقائمة (YYYY-MM-DD)." },
+    "note": { "type": "string", "description": "ملاحظة حرة." },
+    "games": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["appid", "name", "translations"],
+        "properties": {
+          "appid": { "type": "string", "description": "معرّف اللعبة: رقم appid ستيم (مثل 4115450)، أو 'store:id' للمنصات الثانية (مثل ea:..., gog:...)." },
+          "name": { "type": "string", "description": "اسم اللعبة كما يظهر." },
+          "nexusDomain": { "type": ["string", "null"], "description": "اسم اللعبة في Nexus (game domain) للبحث، أو null. مثال: eldenring." },
+          "translations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "type"],
+              "properties": {
+                "name": { "type": "string", "description": "اسم التعريب." },
+                "translator": { "type": "string", "description": "الفريق أو المعرّب." },
+                "page": { "type": "string", "description": "رابط الصفحة الرسمية للتعريب." },
+                "type": { "type": "string", "enum": ["pak", "files", "exe", "workshop"], "description": "pak = ملفات Unreal (~mods)، files = ملفات تُنسخ، exe = مثبّت، workshop = ورشة ستيم." },
+                "gameBuild": { "type": ["string", "null"], "description": "رقم نسخة اللعبة المدعومة (buildid ستيم) لمطابقة «يناسب نسختك»، أو null." },
+                "version": { "type": ["string", "null"], "description": "نسخة التعريب." },
+                "updated": { "type": ["string", "null"], "description": "تاريخ آخر تحديث للتعريب (YYYY-MM-DD)." },
+                "stats": { "type": ["string", "null"], "description": "مصدر الإحصائيات عبر السيرفر الوسيط: 'github:owner/repo' أو 'nexus:domain/modid' أو 'workshop:id' أو null." },
+                "download": { "type": ["string", "null"], "description": "رابط تحميل مباشر (zip)، أو null فيُفتح رابط page في المتصفح." },
+                "sha256url": { "type": ["string", "null"], "description": "رابط ملف SHA256SUMS للتحقق بعد التحميل، أو null." },
+                "proxyDll": { "type": "boolean", "description": "هل فيه DLL وكيل (version.dll / dinput8.dll ...). يُظهر علامة تحذير." },
+                "replacesFiles": { "type": "boolean", "description": "هل يستبدل ملفات اللعبة الأصلية. يُظهر علامة تحذير." },
+                "installer": { "type": "boolean", "description": "هل هو مثبّت exe (لا يُشغّل تلقائياً، يُفتح مجلده فقط)." },
+                "site": { "type": ["string", "null"], "description": "اسم الموقع/المصدر المعروض." },
+                "searchUrl": { "type": ["string", "null"], "description": "رابط بحث الموقع على اسم اللعبة (زر «دوّر في الموقع»). استخدم {q} مكان اسم اللعبة إن لزم." }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "updated": "2026-11-24",
+  "note": "قائمة التعريبات العربية المتوفرة للألعاب. XP IBRA يقراها من raw.githubusercontent.com ويحفظ نسخة محلية 6 ساعات. الروابط فقط — لا تُرفع ملفات التعريب هنا. شرح الحقول في arabic.schema.json و(طريقة إضافة تعريب للقائمة.txt).",
+  "games": [
+    {
+      "appid": "4115450",
+      "name": "Phantom Blade Zero",
+      "nexusDomain": null,
+      "translations": [
+        {
+          "name": "تعريب ترس",
+          "translator": "فريق ترس (Ters)",
+          "page": "https://pub-f720128bfd4541b599009a7386cc68a9.r2.dev/phantomBladeAR/index.html",
+          "type": "pak",
+          "gameBuild": "26367565",
+          "version": "1.0.7",
+          "updated": "2026-11-04",
+          "stats": null,
+          "download": null,
+          "sha256url": null,
+          "proxyDll": true,
+          "replacesFiles": false,
+          "installer": false,
+          "site": "ترس",
+          "searchUrl": "https://www.google.com/search?q=%D8%AA%D8%B9%D8%B1%D9%8A%D8%A8+%D8%AA%D8%B1%D8%B3+Phantom+Blade+Zero"
+        }
+      ]
+    }
+  ]
+}

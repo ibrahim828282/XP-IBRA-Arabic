@@ -1,0 +1,66 @@
+# Checks the catalog on every push / pull request, and the links once a week.
+# No secrets: the weekly job opens issues with the GITHUB_TOKEN that GitHub Actions provides by itself.
+name: validate
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"   # every Monday 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    name: arabic.json (schema, duplicates, https)
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema==4.23.0
+      - run: python .github/scripts/validate.py
+
+  links:
+    name: weekly link check
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Open every link
+        id: check
+        run: |
+          set +e
+          python .github/scripts/check_links.py
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+      - name: Open (or update) an issue for broken links
+        if: steps.check.outputs.code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create broken-link --color d73a4a --description "رابط ما يشتغل" 2>/dev/null || true
+          title="روابط ما تشتغل في القائمة"
+          {
+            echo "الفحص الأسبوعي لقى روابط ما تفتح:"
+            echo
+            cat broken.md
+            echo
+            echo "تشغيل الفحص: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          } > body.md
+          num=$(gh issue list --state open --label broken-link --search "in:title $title" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --body-file body.md
+          else
+            gh issue create --title "$title" --label broken-link --body-file body.md
+          fi

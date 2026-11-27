@@ -1,0 +1,73 @@
+name: اقتراح تعريب
+description: اقترح تعريب عربي للعبة عشان ينضاف لقائمة XP IBRA
+title: "[اقتراح] "
+labels: ["translation-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        شكراً على الاقتراح! القائمة فيها **روابط بس** — التعريب يظل عند فريقه، والتحميل من موقعهم.
+        **ممنوع:** روابط كراك أو نسخ مكركة أو ملفات تفك الحماية، أو رفع ملفات تعريب ناس بدون إذنهم.
+  - type: input
+    id: game
+    attributes:
+      label: اسم اللعبة
+      placeholder: Phantom Blade Zero
+    validations:
+      required: true
+  - type: input
+    id: steam
+    attributes:
+      label: رابط اللعبة في ستيم أو رقم appid
+      description: مثال store.steampowered.com/app/4115450 أو 4115450. لو اللعبة مو في ستيم اكتب المتجر.
+      placeholder: https://store.steampowered.com/app/4115450/
+    validations:
+      required: true
+  - type: input
+    id: team
+    attributes:
+      label: اسم الفريق أو المعرّب
+      placeholder: فريق ترس
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: رابط الصفحة الرسمية للتعريب
+      description: من موقع الفريق أو المعرّب نفسه، ويبدأ بـ https
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: نوع التعريب
+      options:
+        - ملفات pak (Unreal ~mods)
+        - ملفات تُنسخ جنب اللعبة
+        - مثبّت (exe)
+        - ورشة ستيم
+        - ما أدري
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: نسخة اللعبة اللي يدعمها (لو معروفة)
+      placeholder: "1.0.3 أو buildid 26367565"
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: ملاحظات
+      description: أي شي ثاني يفيد (نسخة التعريب، هل فيه DLL، هل يستبدل ملفات…)
+    validations:
+      required: false
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: تأكيد
+      options:
+        - label: الرابط رسمي، ومو كراك ولا نسخة مكركة ولا يفك حماية.
+          required: true
