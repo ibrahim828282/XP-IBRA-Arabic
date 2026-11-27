@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-24",
+  "updated": "2026-11-27",
   "note": "قائمة التعريبات العربية المتوفرة للألعاب. XP IBRA يقراها من raw.githubusercontent.com ويحفظ نسخة محلية 6 ساعات. الروابط فقط — لا تُرفع ملفات التعريب هنا. شرح الحقول في arabic.schema.json و(طريقة إضافة تعريب للقائمة.txt).",
   "games": [
     {
@@ -24,6 +24,30 @@
           "installer": false,
           "site": "ترس",
           "searchUrl": "https://www.google.com/search?q=%D8%AA%D8%B9%D8%B1%D9%8A%D8%A8+%D8%AA%D8%B1%D8%B3+Phantom+Blade+Zero"
+        }
+      ]
+    },
+    {
+      "appid": "2868840",
+      "name": "Slay the Spire 2",
+      "nexusDomain": null,
+      "translations": [
+        {
+          "name": "تعريب XP IBRA",
+          "translator": "ibrahim828282 (XP IBRA)",
+          "page": "https://github.com/ibrahim828282/STS2-Arabic",
+          "type": "files",
+          "gameBuild": "23811903",
+          "version": "1.0",
+          "updated": "2026-10-21",
+          "stats": "github:ibrahim828282/STS2-Arabic",
+          "download": null,
+          "sha256url": null,
+          "proxyDll": false,
+          "replacesFiles": false,
+          "installer": false,
+          "site": "GitHub",
+          "searchUrl": "https://github.com/ibrahim828282/STS2-Arabic/releases"
         }
       ]
     }
