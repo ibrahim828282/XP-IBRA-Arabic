@@ -36,7 +36,10 @@
                 "replacesFiles": { "type": "boolean", "description": "هل يستبدل ملفات اللعبة الأصلية. يُظهر علامة تحذير." },
                 "installer": { "type": "boolean", "description": "هل هو مثبّت exe (لا يُشغّل تلقائياً، يُفتح مجلده فقط)." },
                 "site": { "type": ["string", "null"], "description": "اسم الموقع/المصدر المعروض." },
-                "searchUrl": { "type": ["string", "null"], "description": "رابط بحث الموقع على اسم اللعبة (زر «دوّر في الموقع»). استخدم {q} مكان اسم اللعبة إن لزم." }
+                "searchUrl": { "type": ["string", "null"], "description": "رابط بحث الموقع على اسم اللعبة (زر «دوّر في الموقع»). استخدم {q} مكان اسم اللعبة إن لزم." },
+                "installTo": { "type": ["string", "null"], "pattern": "^(%APPDATA%|%LOCALAPPDATA%|%USERPROFILE%\\\\Documents|%USERPROFILE%\\\\Saved Games)\\\\[A-Za-z0-9 _.()\\\\-]+$", "description": "للتعريبات اللي اللعبة تقراها من مجلد إعداداتها بدل مجلد اللعبة: المكان اللي تنحط فيه ملفات المجلدات اللي داخل الـzip. يبدأ بـ %APPDATA%\\ أو %LOCALAPPDATA%\\ أو %USERPROFILE%\\Documents\\ أو %USERPROFILE%\\Saved Games\\ فقط، وبدون .. . يجي مع installZip." },
+                "installZip": { "type": ["string", "null"], "description": "رابط zip مباشر (https) للتركيب في installTo. اللانشر يفحصه ويتحقق من sha256url، ويحتفظ بنسخة من أي ملف يستبدله عشان «شيل التعريب». خلّ download = null عشان نسخ اللانشر القديمة تفتح الصفحة بدل ما تركّب في مكان غلط." },
+                "installNote": { "type": ["string", "null"], "description": "ملاحظة تطلع للمستخدم بعد التركيب (مثل: خلّ لغة اللعبة English)." }
               }
             }
           }

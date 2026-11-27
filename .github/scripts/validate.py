@@ -12,7 +12,7 @@ import jsonschema
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DATA = ROOT / "catalog" / "arabic.json"
 SCHEMA = ROOT / "catalog" / "arabic.schema.json"
-URL_FIELDS = ("page", "download", "sha256url", "searchUrl")
+URL_FIELDS = ("page", "download", "sha256url", "searchUrl", "installZip")
 
 
 def main() -> int:
@@ -63,6 +63,15 @@ def main() -> int:
                     continue
                 if not isinstance(url, str) or not url.startswith("https://"):
                     errors.append(f"not https: {tag}.{field} = {url!r}")
+            # AppData install: both fields together, never "..", and download stays empty (old launchers would put it in the game folder)
+            to, zp = tr.get("installTo"), tr.get("installZip")
+            if bool(to) != bool(zp):
+                errors.append(f"{tag}: installTo and installZip go together")
+            if to:
+                if any(seg.strip(". ") == "" for seg in str(to).replace("/", "\\").split("\\")[1:]):
+                    errors.append(f"{tag}.installTo has an empty, '.' or '..' part: {to!r}")
+                if tr.get("download"):
+                    errors.append(f"{tag}: with installTo, keep download null (older launchers would install into the game folder)")
 
     games = len(data.get("games") or [])
     trs = sum(len(g.get("translations") or []) for g in data.get("games") or [] if isinstance(g, dict))

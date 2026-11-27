@@ -12,7 +12,7 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DATA = ROOT / "catalog" / "arabic.json"
 OUT = ROOT / "broken.md"
-FIELDS = ("page", "download", "sha256url")
+FIELDS = ("page", "download", "sha256url", "installZip")
 TIMEOUT = 25
 UA = "XP-IBRA-Arabic link check (+https://github.com/ibrahim828282/XP-IBRA-Arabic)"
 

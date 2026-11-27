@@ -42,12 +42,15 @@
           "updated": "2026-10-21",
           "stats": "github:ibrahim828282/STS2-Arabic",
           "download": null,
-          "sha256url": null,
+          "sha256url": "https://raw.githubusercontent.com/ibrahim828282/STS2-Arabic/v1.0/SHA256SUMS",
           "proxyDll": false,
           "replacesFiles": false,
           "installer": false,
           "site": "GitHub",
-          "searchUrl": "https://github.com/ibrahim828282/STS2-Arabic/releases"
+          "searchUrl": "https://github.com/ibrahim828282/STS2-Arabic/releases",
+          "installTo": "%APPDATA%\\SlayTheSpire2\\localization_override",
+          "installZip": "https://github.com/ibrahim828282/STS2-Arabic/releases/download/v1.0/STS2-Arabic-v1.0.zip",
+          "installNote": "من إعدادات اللعبة خلّ اللغة English، وأعد تشغيل اللعبة."
         }
       ]
     }
